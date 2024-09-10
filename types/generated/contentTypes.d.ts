@@ -860,6 +860,39 @@ export interface ApiBlogEventBlogEvent extends Schema.CollectionType {
   };
 }
 
+export interface ApiBlogLecturerBlogLecturer extends Schema.CollectionType {
+  collectionName: 'blog_lecturers';
+  info: {
+    singularName: 'blog-lecturer';
+    pluralName: 'blog-lecturers';
+    displayName: 'blog-Lecturer';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    nameTH: Attribute.String;
+    nameEN: Attribute.String;
+    telephone: Attribute.BigInteger;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::blog-lecturer.blog-lecturer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::blog-lecturer.blog-lecturer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiBlogNewsHomeBlogNewsHome extends Schema.SingleType {
   collectionName: 'blog_news_homes';
   info: {
@@ -985,6 +1018,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::blog-event.blog-event': ApiBlogEventBlogEvent;
+      'api::blog-lecturer.blog-lecturer': ApiBlogLecturerBlogLecturer;
       'api::blog-news-home.blog-news-home': ApiBlogNewsHomeBlogNewsHome;
       'api::blog-personnel.blog-personnel': ApiBlogPersonnelBlogPersonnel;
       'api::blog-publicity.blog-publicity': ApiBlogPublicityBlogPublicity;
