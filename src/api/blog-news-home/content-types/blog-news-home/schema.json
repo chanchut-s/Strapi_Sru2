@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "blog_news_homes",
+  "info": {
+    "singularName": "blog-news-home",
+    "pluralName": "blog-news-homes",
+    "displayName": "Blog-news-home",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "blog_events": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog-event.blog-event"
+    },
+    "blog_publicities": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog-publicity.blog-publicity"
+    }
+  }
+}

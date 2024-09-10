@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blog_publicities",
+  "info": {
+    "singularName": "blog-publicity",
+    "pluralName": "blog-publicities",
+    "displayName": "Blog-publicity",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "detail": {
+      "type": "blocks"
+    },
+    "thumbnail": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

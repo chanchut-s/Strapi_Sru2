@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blog_events",
+  "info": {
+    "singularName": "blog-event",
+    "pluralName": "blog-events",
+    "displayName": "Blog-event",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "detail": {
+      "type": "blocks"
+    }
+  }
+}
