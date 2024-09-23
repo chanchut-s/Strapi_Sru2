@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_services_menus",
+  "info": {
+    "displayName": "title",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "text_th": {
+      "type": "string"
+    },
+    "detail": {
+      "type": "blocks"
+    },
+    "Add_Item": {
+      "type": "component",
+      "repeatable": true,
+      "component": "services.tool-or-product"
+    }
+  }
+}

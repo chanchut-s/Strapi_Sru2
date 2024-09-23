@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "add_menu_personnels",
+  "info": {
+    "singularName": "add-menu-personnel",
+    "pluralName": "add-menu-personnels",
+    "displayName": "Add-menu-About-Service",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "personnels": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::menu-personnel.menu-personnel"
+    },
+    "about_us": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::about-us.about-us"
+    },
+    "services": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service.service"
+    }
+  }
+}

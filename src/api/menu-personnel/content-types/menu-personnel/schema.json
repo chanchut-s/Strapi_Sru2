@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menu_personnels",
+  "info": {
+    "singularName": "menu-personnel",
+    "pluralName": "menu-personnels",
+    "displayName": "Position-personnel",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "text"
+    },
+    "text_th": {
+      "type": "string"
+    },
+    "blog_personnels": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog-personnel.blog-personnel"
+    }
+  }
+}

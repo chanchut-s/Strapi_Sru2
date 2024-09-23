@@ -4,7 +4,7 @@
   "info": {
     "singularName": "blog-news-home",
     "pluralName": "blog-news-homes",
-    "displayName": "Blog-news-home",
+    "displayName": "Show-news-home",
     "description": ""
   },
   "options": {
@@ -12,15 +12,15 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "blog_events": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::blog-event.blog-event"
-    },
     "blog_publicities": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::blog-publicity.blog-publicity"
+    },
+    "blog_events": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog-event.blog-event"
     }
   }
 }

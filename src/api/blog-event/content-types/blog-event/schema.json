@@ -28,6 +28,16 @@
     },
     "detail": {
       "type": "blocks"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "start": {
+      "type": "datetime"
+    },
+    "end": {
+      "type": "datetime"
     }
   }
 }

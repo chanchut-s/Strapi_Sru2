@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "show_partners",
+  "info": {
+    "singularName": "show-partner",
+    "pluralName": "show-partners",
+    "displayName": "Show-partner"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "blog_partners": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog-partner.blog-partner"
+    }
+  }
+}

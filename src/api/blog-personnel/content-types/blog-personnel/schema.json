@@ -4,21 +4,39 @@
   "info": {
     "singularName": "blog-personnel",
     "pluralName": "blog-personnels",
-    "displayName": "Blog-personnel"
+    "displayName": "Blog-personnel",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "nameTH": {
+    "name": {
       "type": "string"
     },
-    "nameEN": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "position": {
       "type": "string"
     },
-    "telephone": {
-      "type": "integer"
+    "phone_number": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "detail": {
+      "type": "blocks"
     }
   }
 }
