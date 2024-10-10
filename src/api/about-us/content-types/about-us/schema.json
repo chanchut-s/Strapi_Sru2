@@ -4,7 +4,8 @@
   "info": {
     "singularName": "about-us",
     "pluralName": "about-uses",
-    "displayName": "About-us"
+    "displayName": "About-us",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,27 +23,23 @@
       "type": "string"
     },
     "image1": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
-    },
-    "image2": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "detail": {
       "type": "blocks"
+    },
+    "Add_File": {
+      "type": "component",
+      "repeatable": true,
+      "component": "services.file"
     }
   }
 }

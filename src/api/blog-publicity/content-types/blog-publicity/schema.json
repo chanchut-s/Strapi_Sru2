@@ -32,9 +32,17 @@
     "start": {
       "type": "datetime"
     },
-    "slug": {
-      "type": "uid",
-      "targetField": "title"
+    "Add_File": {
+      "type": "component",
+      "repeatable": true,
+      "component": "services.file"
+    },
+    "video": {
+      "allowedTypes": [
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

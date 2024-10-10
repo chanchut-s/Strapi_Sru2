@@ -833,6 +833,7 @@ export interface ApiAboutUsAboutUs extends Schema.CollectionType {
     singularName: 'about-us';
     pluralName: 'about-uses';
     displayName: 'About-us';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -842,8 +843,8 @@ export interface ApiAboutUsAboutUs extends Schema.CollectionType {
     slug: Attribute.UID<'api::about-us.about-us', 'text'>;
     text_th: Attribute.String;
     image1: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    image2: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     detail: Attribute.Blocks;
+    Add_File: Attribute.Component<'services.file', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -922,9 +923,10 @@ export interface ApiBlogEventBlogEvent extends Schema.CollectionType {
     title: Attribute.String;
     thumbnail: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     detail: Attribute.Blocks;
-    slug: Attribute.UID<'api::blog-event.blog-event', 'title'>;
     start: Attribute.DateTime;
     end: Attribute.DateTime;
+    Add_File: Attribute.Component<'services.file', true>;
+    video: Attribute.Media<'videos'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1068,7 +1070,8 @@ export interface ApiBlogPublicityBlogPublicity extends Schema.CollectionType {
     detail: Attribute.Blocks;
     thumbnail: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     start: Attribute.DateTime;
-    slug: Attribute.UID<'api::blog-publicity.blog-publicity', 'title'>;
+    Add_File: Attribute.Component<'services.file', true>;
+    video: Attribute.Media<'videos'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

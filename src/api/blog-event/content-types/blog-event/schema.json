@@ -29,15 +29,24 @@
     "detail": {
       "type": "blocks"
     },
-    "slug": {
-      "type": "uid",
-      "targetField": "title"
-    },
     "start": {
       "type": "datetime"
     },
     "end": {
       "type": "datetime"
+    },
+    "Add_File": {
+      "type": "component",
+      "repeatable": true,
+      "component": "services.file"
+    },
+    "video": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "videos"
+      ]
     }
   }
 }

@@ -20,6 +20,18 @@
       "type": "component",
       "repeatable": true,
       "component": "services.tool-or-product"
+    },
+    "Add_File": {
+      "type": "component",
+      "repeatable": true,
+      "component": "services.file"
+    },
+    "video": {
+      "allowedTypes": [
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

@@ -10,6 +10,8 @@ export interface ServicesToolOrProduct extends Schema.Component {
     image: Attribute.Media<'images'>;
     detail: Attribute.Blocks;
     name: Attribute.String;
+    file: Attribute.Media<'files'>;
+    file_name: Attribute.String;
   };
 }
 
@@ -53,6 +55,20 @@ export interface ServicesMenu extends Schema.Component {
     text_th: Attribute.String;
     detail: Attribute.Blocks;
     Add_Item: Attribute.Component<'services.tool-or-product', true>;
+    Add_File: Attribute.Component<'services.file', true>;
+    video: Attribute.Media<'videos'>;
+  };
+}
+
+export interface ServicesFile extends Schema.Component {
+  collectionName: 'components_services_files';
+  info: {
+    displayName: 'File';
+    icon: 'folder';
+  };
+  attributes: {
+    file_name: Attribute.String;
+    file: Attribute.Media<'files'>;
   };
 }
 
@@ -63,6 +79,7 @@ declare module '@strapi/types' {
       'services.service': ServicesService;
       'services.product': ServicesProduct;
       'services.menu': ServicesMenu;
+      'services.file': ServicesFile;
     }
   }
 }
