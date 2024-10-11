@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_contact_address_s",
+  "info": {
+    "displayName": "address ",
+    "icon": "house"
+  },
+  "options": {},
+  "attributes": {
+    "address": {
+      "type": "text"
+    }
+  }
+}

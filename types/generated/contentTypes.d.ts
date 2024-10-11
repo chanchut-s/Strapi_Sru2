@@ -1090,6 +1090,40 @@ export interface ApiBlogPublicityBlogPublicity extends Schema.CollectionType {
   };
 }
 
+export interface ApiContactContact extends Schema.SingleType {
+  collectionName: 'contacts';
+  info: {
+    singularName: 'contact';
+    pluralName: 'contacts';
+    displayName: 'Contact';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    phone: Attribute.Component<'contact.phone', true>;
+    email: Attribute.Component<'contact.email', true>;
+    address: Attribute.Component<'contact.address'>;
+    map: Attribute.Component<'contact.map'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact.contact',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact.contact',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHeroBannerHeroBanner extends Schema.CollectionType {
   collectionName: 'hero_banners';
   info: {
@@ -1381,6 +1415,7 @@ declare module '@strapi/types' {
       'api::blog-partner.blog-partner': ApiBlogPartnerBlogPartner;
       'api::blog-personnel.blog-personnel': ApiBlogPersonnelBlogPersonnel;
       'api::blog-publicity.blog-publicity': ApiBlogPublicityBlogPublicity;
+      'api::contact.contact': ApiContactContact;
       'api::hero-banner.hero-banner': ApiHeroBannerHeroBanner;
       'api::logo.logo': ApiLogoLogo;
       'api::menu-personnel.menu-personnel': ApiMenuPersonnelMenuPersonnel;

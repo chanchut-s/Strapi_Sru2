@@ -72,6 +72,50 @@ export interface ServicesFile extends Schema.Component {
   };
 }
 
+export interface ContactPhone extends Schema.Component {
+  collectionName: 'components_contact_phones';
+  info: {
+    displayName: 'phone';
+    icon: 'phone';
+  };
+  attributes: {
+    phone_number: Attribute.String;
+  };
+}
+
+export interface ContactMap extends Schema.Component {
+  collectionName: 'components_contact_maps';
+  info: {
+    displayName: 'map';
+    icon: 'picture';
+  };
+  attributes: {
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface ContactEmail extends Schema.Component {
+  collectionName: 'components_contact_emails';
+  info: {
+    displayName: 'email';
+    icon: 'envelop';
+  };
+  attributes: {
+    email: Attribute.Email;
+  };
+}
+
+export interface ContactAddress extends Schema.Component {
+  collectionName: 'components_contact_address_s';
+  info: {
+    displayName: 'address ';
+    icon: 'house';
+  };
+  attributes: {
+    address: Attribute.Text;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -80,6 +124,10 @@ declare module '@strapi/types' {
       'services.product': ServicesProduct;
       'services.menu': ServicesMenu;
       'services.file': ServicesFile;
+      'contact.phone': ContactPhone;
+      'contact.map': ContactMap;
+      'contact.email': ContactEmail;
+      'contact.address': ContactAddress;
     }
   }
 }
