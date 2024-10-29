@@ -37,6 +37,15 @@
     },
     "detail": {
       "type": "blocks"
+    },
+    "research": {
+      "type": "blocks"
+    },
+    "Student": {
+      "type": "blocks"
+    },
+    "study": {
+      "type": "blocks"
     }
   }
 }

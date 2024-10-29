@@ -4,7 +4,7 @@
   "info": {
     "singularName": "add-menu-personnel",
     "pluralName": "add-menu-personnels",
-    "displayName": "Add-menu-About-Service",
+    "displayName": "Add-menu-About-Personel",
     "description": ""
   },
   "options": {
@@ -21,11 +21,6 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::about-us.about-us"
-    },
-    "services": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::service.service"
     }
   }
 }

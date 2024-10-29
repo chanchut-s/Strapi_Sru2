@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "news_pins",
+  "info": {
+    "singularName": "news-pin",
+    "pluralName": "news-pins",
+    "displayName": " NewsPin"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "blog_publicities": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog-publicity.blog-publicity"
+    }
+  }
+}

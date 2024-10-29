@@ -868,7 +868,7 @@ export interface ApiAddMenuPersonnelAddMenuPersonnel extends Schema.SingleType {
   info: {
     singularName: 'add-menu-personnel';
     pluralName: 'add-menu-personnels';
-    displayName: 'Add-menu-About-Service';
+    displayName: 'Add-menu-About-Personel';
     description: '';
   };
   options: {
@@ -885,11 +885,6 @@ export interface ApiAddMenuPersonnelAddMenuPersonnel extends Schema.SingleType {
       'oneToMany',
       'api::about-us.about-us'
     >;
-    services: Attribute.Relation<
-      'api::add-menu-personnel.add-menu-personnel',
-      'oneToMany',
-      'api::service.service'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -901,83 +896,6 @@ export interface ApiAddMenuPersonnelAddMenuPersonnel extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::add-menu-personnel.add-menu-personnel',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiBlogEventBlogEvent extends Schema.CollectionType {
-  collectionName: 'blog_events';
-  info: {
-    singularName: 'blog-event';
-    pluralName: 'blog-events';
-    displayName: 'Blog-event';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String;
-    thumbnail: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    detail: Attribute.Blocks;
-    start: Attribute.DateTime;
-    end: Attribute.DateTime;
-    Add_File: Attribute.Component<'services.file', true>;
-    video: Attribute.Media<'videos'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::blog-event.blog-event',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::blog-event.blog-event',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiBlogNewsHomeBlogNewsHome extends Schema.SingleType {
-  collectionName: 'blog_news_homes';
-  info: {
-    singularName: 'blog-news-home';
-    pluralName: 'blog-news-homes';
-    displayName: 'Show-news-home';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    blog_publicities: Attribute.Relation<
-      'api::blog-news-home.blog-news-home',
-      'oneToMany',
-      'api::blog-publicity.blog-publicity'
-    >;
-    blog_events: Attribute.Relation<
-      'api::blog-news-home.blog-news-home',
-      'oneToMany',
-      'api::blog-event.blog-event'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::blog-news-home.blog-news-home',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::blog-news-home.blog-news-home',
       'oneToOne',
       'admin::user'
     > &
@@ -1036,6 +954,9 @@ export interface ApiBlogPersonnelBlogPersonnel extends Schema.CollectionType {
     phone_number: Attribute.String;
     email: Attribute.String;
     detail: Attribute.Blocks;
+    research: Attribute.Blocks;
+    Student: Attribute.Blocks;
+    study: Attribute.Blocks;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1160,7 +1081,7 @@ export interface ApiLogoLogo extends Schema.SingleType {
   info: {
     singularName: 'logo';
     pluralName: 'logos';
-    displayName: 'LogoInnoSci';
+    displayName: 'LogoSRU';
     description: '';
   };
   options: {
@@ -1216,34 +1137,64 @@ export interface ApiMenuPersonnelMenuPersonnel extends Schema.CollectionType {
   };
 }
 
-export interface ApiServiceService extends Schema.CollectionType {
-  collectionName: 'services';
+export interface ApiNewsPinNewsPin extends Schema.SingleType {
+  collectionName: 'news_pins';
   info: {
-    singularName: 'service';
-    pluralName: 'services';
-    displayName: 'Service';
-    description: '';
+    singularName: 'news-pin';
+    pluralName: 'news-pins';
+    displayName: ' NewsPin';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    text: Attribute.String;
-    slug: Attribute.UID<'api::service.service', 'text'>;
-    text_th: Attribute.String;
-    title: Attribute.DynamicZone<['services.menu']>;
-    image: Attribute.Media<'images'>;
+    blog_publicities: Attribute.Relation<
+      'api::news-pin.news-pin',
+      'oneToMany',
+      'api::blog-publicity.blog-publicity'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::service.service',
+      'api::news-pin.news-pin',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::service.service',
+      'api::news-pin.news-pin',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiRewardReward extends Schema.CollectionType {
+  collectionName: 'rewards';
+  info: {
+    singularName: 'reward';
+    pluralName: 'rewards';
+    displayName: 'Reward';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    url: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::reward.reward',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::reward.reward',
       'oneToOne',
       'admin::user'
     > &
@@ -1287,40 +1238,6 @@ export interface ApiShowAboutInnoSciHomeShowAboutInnoSciHome
   };
 }
 
-export interface ApiShowHeroBannerShowHeroBanner extends Schema.SingleType {
-  collectionName: 'show_hero_banners';
-  info: {
-    singularName: 'show-hero-banner';
-    pluralName: 'show-hero-banners';
-    displayName: 'Show-hero-banner';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    hero_banners: Attribute.Relation<
-      'api::show-hero-banner.show-hero-banner',
-      'oneToMany',
-      'api::hero-banner.hero-banner'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::show-hero-banner.show-hero-banner',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::show-hero-banner.show-hero-banner',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiShowPartnerShowPartner extends Schema.SingleType {
   collectionName: 'show_partners';
   info: {
@@ -1355,33 +1272,33 @@ export interface ApiShowPartnerShowPartner extends Schema.SingleType {
   };
 }
 
-export interface ApiShowServiceShowService extends Schema.SingleType {
-  collectionName: 'show_services';
+export interface ApiShowRewardShowReward extends Schema.SingleType {
+  collectionName: 'show_rewards';
   info: {
-    singularName: 'show-service';
-    pluralName: 'show-services';
-    displayName: 'Show-Service';
+    singularName: 'show-reward';
+    pluralName: 'show-rewards';
+    displayName: 'Show-reward';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    services: Attribute.Relation<
-      'api::show-service.show-service',
+    rewards: Attribute.Relation<
+      'api::show-reward.show-reward',
       'oneToMany',
-      'api::service.service'
+      'api::reward.reward'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::show-service.show-service',
+      'api::show-reward.show-reward',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::show-service.show-service',
+      'api::show-reward.show-reward',
       'oneToOne',
       'admin::user'
     > &
@@ -1410,8 +1327,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::add-menu-personnel.add-menu-personnel': ApiAddMenuPersonnelAddMenuPersonnel;
-      'api::blog-event.blog-event': ApiBlogEventBlogEvent;
-      'api::blog-news-home.blog-news-home': ApiBlogNewsHomeBlogNewsHome;
       'api::blog-partner.blog-partner': ApiBlogPartnerBlogPartner;
       'api::blog-personnel.blog-personnel': ApiBlogPersonnelBlogPersonnel;
       'api::blog-publicity.blog-publicity': ApiBlogPublicityBlogPublicity;
@@ -1419,11 +1334,11 @@ declare module '@strapi/types' {
       'api::hero-banner.hero-banner': ApiHeroBannerHeroBanner;
       'api::logo.logo': ApiLogoLogo;
       'api::menu-personnel.menu-personnel': ApiMenuPersonnelMenuPersonnel;
-      'api::service.service': ApiServiceService;
+      'api::news-pin.news-pin': ApiNewsPinNewsPin;
+      'api::reward.reward': ApiRewardReward;
       'api::show-about-inno-sci-home.show-about-inno-sci-home': ApiShowAboutInnoSciHomeShowAboutInnoSciHome;
-      'api::show-hero-banner.show-hero-banner': ApiShowHeroBannerShowHeroBanner;
       'api::show-partner.show-partner': ApiShowPartnerShowPartner;
-      'api::show-service.show-service': ApiShowServiceShowService;
+      'api::show-reward.show-reward': ApiShowRewardShowReward;
     }
   }
 }
